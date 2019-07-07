@@ -13,8 +13,15 @@ done
 # kill music players
 killall lollypop
 killall rhythmbox
+killall gnome-music
+# flatpak support
+command -v flatpak&&flatpak kill org.gnome.Lollypop
+command -v flatpak&&flatpak kill org.gnome.Rhythmbox3
+command -v flatpak&&flatpak kill org.gnome.Music
 
-# reset volume
+# reset/restore volume
+# so the next time the volume is not set to 0%
+sleep 0.1
 amixer set Master $currentSound
 
 # suspend
